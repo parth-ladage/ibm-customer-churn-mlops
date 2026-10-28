@@ -1,0 +1,142 @@
+{
+  "project": "IBM Customer Churn MLOps",
+  "monitoring_tool": "Evidently AI",
+  "timestamp": "2026-10-28T13:20:00",
+  "data_quality": {
+    "dataset_name": "IBM Customer Churn",
+    "reference_dataset": "data/train.csv",
+    "reference_rows": 5634,
+    "current_dataset": "data/test.csv",
+    "current_rows": 1409,
+    "total_monitored_features": 5,
+    "target_column": "Churn",
+    "reference_missing_values": 0,
+    "current_missing_values": 0
+  },
+  "dataset_drift": {
+    "dataset_drift_detected": false,
+    "number_of_drifted_features": 0,
+    "total_features": 5,
+    "share_of_drifted_features": 0.0
+  },
+  "feature_metrics": {
+    "tenure": {
+      "type": "Numeric",
+      "test_name": "Kolmogorov-Smirnov (KS)",
+      "drift_score": 0.019,
+      "p_value": 0.8052,
+      "threshold": 0.05,
+      "drift_detected": false,
+      "reference_stats": {
+        "count": 5634,
+        "mean": 32.25,
+        "std": 24.57,
+        "min": 0.0,
+        "median": 29.0,
+        "max": 72.0
+      },
+      "current_stats": {
+        "count": 1409,
+        "mean": 32.85,
+        "std": 24.53,
+        "min": 1.0,
+        "median": 30.0,
+        "max": 72.0
+      }
+    },
+    "MonthlyCharges": {
+      "type": "Numeric",
+      "test_name": "Kolmogorov-Smirnov (KS)",
+      "drift_score": 0.0164,
+      "p_value": 0.9216,
+      "threshold": 0.05,
+      "drift_detected": false,
+      "reference_stats": {
+        "count": 5634,
+        "mean": 64.72,
+        "std": 30.09,
+        "min": 18.4,
+        "median": 70.3,
+        "max": 118.65
+      },
+      "current_stats": {
+        "count": 1409,
+        "mean": 64.92,
+        "std": 30.12,
+        "min": 18.25,
+        "median": 71.0,
+        "max": 118.75
+      }
+    },
+    "Contract": {
+      "type": "Categorical",
+      "test_name": "Population Stability Index (PSI)",
+      "drift_score": 0.0006,
+      "p_value": 0.9994,
+      "threshold": 0.1,
+      "drift_detected": false,
+      "reference_distribution": {
+        "Month-to-month": 0.5513,
+        "One year": 0.2071,
+        "Two year": 0.2416
+      },
+      "current_distribution": {
+        "Month-to-month": 0.5458,
+        "Two year": 0.237,
+        "One year": 0.2172
+      }
+    },
+    "InternetService": {
+      "type": "Categorical",
+      "test_name": "Population Stability Index (PSI)",
+      "drift_score": 0.0002,
+      "p_value": 0.9998,
+      "threshold": 0.1,
+      "drift_detected": false,
+      "reference_distribution": {
+        "Fiber optic": 0.4404,
+        "No": 0.2155,
+        "DSL": 0.3442
+      },
+      "current_distribution": {
+        "Fiber optic": 0.4365,
+        "No": 0.2214,
+        "DSL": 0.3421
+      }
+    },
+    "PaymentMethod": {
+      "type": "Categorical",
+      "test_name": "Population Stability Index (PSI)",
+      "drift_score": 0.0004,
+      "p_value": 0.9996,
+      "threshold": 0.1,
+      "drift_detected": false,
+      "reference_distribution": {
+        "Electronic check": 0.3369,
+        "Credit card (automatic)": 0.2146,
+        "Bank transfer (automatic)": 0.2188,
+        "Mailed check": 0.2297
+      },
+      "current_distribution": {
+        "Electronic check": 0.3314,
+        "Mailed check": 0.2257,
+        "Credit card (automatic)": 0.2221,
+        "Bank transfer (automatic)": 0.2207
+      }
+    }
+  },
+  "target_drift": {
+    "column": "Churn",
+    "metric": "PSI",
+    "score": 0.0,
+    "drift_detected": false,
+    "reference_distribution": {
+      "Yes": 0.2654,
+      "No": 0.7346
+    },
+    "current_distribution": {
+      "No": 0.7346,
+      "Yes": 0.2654
+    }
+  }
+}

@@ -25,4 +25,5 @@ mlflow.db
 .vscode/
 *.swp
 *.swo
+.~lock.*
 .DS_Store

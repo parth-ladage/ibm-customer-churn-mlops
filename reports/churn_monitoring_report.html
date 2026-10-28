@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Evidently ML Monitoring - IBM Customer Churn</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8fafc; color: #1e293b; padding: 24px; }
+        .card { background: white; border-radius: 8px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .header { border-bottom: 2px solid #2563eb; padding-bottom: 12px; }
+        h1 { color: #1e3a8a; font-size: 20px; margin: 0 0 6px 0; }
+        .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 14px; }
+        .box { background: #f1f5f9; padding: 12px; border-radius: 6px; text-align: center; }
+        .val { font-size: 22px; font-weight: 700; color: #1d4ed8; margin-top: 4px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; }
+        th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        th { background: #f8fafc; color: #475569; }
+    </style>
+</head>
+<body>
+    <div class="card header">
+        <h1>Evidently ML Monitoring: IBM Customer Churn</h1>
+        <p style="margin:0; color:#64748b; font-size:13px;">Comparing Reference Baseline (data/train.csv, 5634 rows) vs Current Production Observations (data/test.csv, 1409 rows).</p>
+    </div>
+    <div class="card">
+        <h3>1. Data Quality & Dataset Drift Overview</h3>
+        <div class="grid">
+            <div class="box"><div>Reference Rows</div><div class="val">5634</div></div>
+            <div class="box"><div>Current Rows</div><div class="val">1409</div></div>
+            <div class="box"><div>Drifted Features</div><div class="val">0 / 5</div></div>
+            <div class="box"><div>Dataset Drift</div><div class="val" style="color: #16a34a;">HEALTHY</div></div>
+        </div>
+    </div>
+    <div class="card">
+        <h3>2. Feature-Level Drift Evaluation</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th><th>Type</th><th>Statistical Metric</th><th>Score</th><th>Threshold</th><th>Status</th><th>Reference Profile</th><th>Current Profile</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+        <tr>
+            <td style="font-weight:600;">tenure</td>
+            <td>Numeric</td>
+            <td>Kolmogorov-Smirnov (KS)</td>
+            <td>0.019</td>
+            <td>0.8052</td>
+            <td><span style="background:#dcfce7;color:#15803d;padding:3px 8px;border-radius:12px;font-weight:600;">NO DRIFT</span></td>
+            <td>Mean: 32.25, Std: 24.57</td>
+            <td>Mean: 32.85, Std: 24.53</td>
+        </tr>
+        
+        <tr>
+            <td style="font-weight:600;">MonthlyCharges</td>
+            <td>Numeric</td>
+            <td>Kolmogorov-Smirnov (KS)</td>
+            <td>0.0164</td>
+            <td>0.9216</td>
+            <td><span style="background:#dcfce7;color:#15803d;padding:3px 8px;border-radius:12px;font-weight:600;">NO DRIFT</span></td>
+            <td>Mean: 64.72, Std: 30.09</td>
+            <td>Mean: 64.92, Std: 30.12</td>
+        </tr>
+        
+        <tr>
+            <td style="font-weight:600;">Contract</td>
+            <td>Categorical</td>
+            <td>Population Stability Index (PSI)</td>
+            <td>0.0006</td>
+            <td>0.9994</td>
+            <td><span style="background:#dcfce7;color:#15803d;padding:3px 8px;border-radius:12px;font-weight:600;">NO DRIFT</span></td>
+            <td>Month-to-month:0.5513, One year:0.2071</td>
+            <td>Month-to-month:0.5458, Two year:0.237</td>
+        </tr>
+        
+        <tr>
+            <td style="font-weight:600;">InternetService</td>
+            <td>Categorical</td>
+            <td>Population Stability Index (PSI)</td>
+            <td>0.0002</td>
+            <td>0.9998</td>
+            <td><span style="background:#dcfce7;color:#15803d;padding:3px 8px;border-radius:12px;font-weight:600;">NO DRIFT</span></td>
+            <td>Fiber optic:0.4404, No:0.2155</td>
+            <td>Fiber optic:0.4365, No:0.2214</td>
+        </tr>
+        
+        <tr>
+            <td style="font-weight:600;">PaymentMethod</td>
+            <td>Categorical</td>
+            <td>Population Stability Index (PSI)</td>
+            <td>0.0004</td>
+            <td>0.9996</td>
+            <td><span style="background:#dcfce7;color:#15803d;padding:3px 8px;border-radius:12px;font-weight:600;">NO DRIFT</span></td>
+            <td>Electronic check:0.3369, Credit card (automatic):0.2146</td>
+            <td>Electronic check:0.3314, Mailed check:0.2257</td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
