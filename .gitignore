@@ -1,6 +1,28 @@
+# Virtual Environments
 venv/
+.venv/
+env/
+
+# Python Bytecode & Cache
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# MLflow
 .mlflow/
 mlruns/
 mlflow.db
+
+# Environment Variables & IDE
+.env
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store

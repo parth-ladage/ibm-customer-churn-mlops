@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Evidently ML Monitoring Report - Iris Dataset</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif; background: #f8fafc; color: #1e293b; padding: 24px; }
+        .card { background: white; border-radius: 8px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .header { border-bottom: 2px solid #3b82f6; padding-bottom: 12px; margin-bottom: 16px; }
+        h1 { color: #1e3a8a; font-size: 20px; margin: 0; }
+        .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin: 15px 0; }
+        .metric-box { background: #f1f5f9; padding: 12px; border-radius: 6px; text-align: center; }
+        .metric-val { font-size: 22px; font-weight: 700; color: #1e40af; margin-top: 4px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 13px; }
+        th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        th { background: #f8fafc; font-weight: 600; color: #475569; }
+    </style>
+</head>
+<body>
+    <div class="card header">
+        <h1>Evidently ML Monitoring & Data Drift Dashboard</h1>
+        <p style="margin:4px 0 0 0; color:#64748b; font-size:13px;">Comparing Reference Baseline (75 samples) vs Current Production Observations (75 samples) on real Iris dataset.</p>
+    </div>
+    <div class="card">
+        <h3>1. Data Quality & Dataset Drift Summary</h3>
+        <div class="metrics-grid">
+            <div class="metric-box"><div>Reference Rows</div><div class="metric-val">75</div></div>
+            <div class="metric-box"><div>Current Rows</div><div class="metric-val">75</div></div>
+            <div class="metric-box"><div>Drifted Features</div><div class="metric-val">0 / 4</div></div>
+            <div class="metric-box"><div>Dataset Drift</div><div class="metric-val" style="color: #16a34a;">HEALTHY</div></div>
+        </div>
+    </div>
+    <div class="card">
+        <h3>2. Detailed Feature Data Drift Metrics (Kolmogorov-Smirnov Test)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th><th>Statistical Test</th><th>Drift Score</th><th>p-value</th><th>Threshold</th><th>Status</th><th>Ref (Mean &plusmn; Std)</th><th>Curr (Mean &plusmn; Std)</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+        <tr>
+            <td style="font-weight:600;">sepal_length</td>
+            <td>Kolmogorov-Smirnov (KS)</td>
+            <td>0.0667</td>
+            <td>0.9949</td>
+            <td>0.05</td>
+            <td><span style="background:#dcfce7;color:#15803d;padding:3px 8px;border-radius:12px;font-weight:600;">NO DRIFT</span></td>
+            <td>5.872 &plusmn; 0.857</td>
+            <td>5.815 &plusmn; 0.803</td>
+        </tr>
+        
+        <tr>
+            <td style="font-weight:600;">sepal_width</td>
+            <td>Kolmogorov-Smirnov (KS)</td>
+            <td>0.0667</td>
+            <td>0.9949</td>
+            <td>0.05</td>
+            <td><span style="background:#dcfce7;color:#15803d;padding:3px 8px;border-radius:12px;font-weight:600;">NO DRIFT</span></td>
+            <td>3.061 &plusmn; 0.468</td>
+            <td>3.053 &plusmn; 0.404</td>
+        </tr>
+        
+        <tr>
+            <td style="font-weight:600;">petal_length</td>
+            <td>Kolmogorov-Smirnov (KS)</td>
+            <td>0.0667</td>
+            <td>0.9949</td>
+            <td>0.05</td>
+            <td><span style="background:#dcfce7;color:#15803d;padding:3px 8px;border-radius:12px;font-weight:600;">NO DRIFT</span></td>
+            <td>3.804 &plusmn; 1.815</td>
+            <td>3.712 &plusmn; 1.725</td>
+        </tr>
+        
+        <tr>
+            <td style="font-weight:600;">petal_width</td>
+            <td>Kolmogorov-Smirnov (KS)</td>
+            <td>0.0533</td>
+            <td>0.9999</td>
+            <td>0.05</td>
+            <td><span style="background:#dcfce7;color:#15803d;padding:3px 8px;border-radius:12px;font-weight:600;">NO DRIFT</span></td>
+            <td>1.212 &plusmn; 0.77</td>
+            <td>1.187 &plusmn; 0.76</td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
